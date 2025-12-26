@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
 import prisma from "@/lib/prisma";
 import { requireSession } from "@/lib/auth";
 import { scrapeWebsite } from "@/lib/scraper";
@@ -46,7 +47,7 @@ export async function POST(
         where: { id },
         data: {
           analysisStatus: "ANALYZING",
-          scrapedData: scrapedData as unknown as Record<string, unknown>,
+          scrapedData: scrapedData as unknown as Prisma.InputJsonValue,
         },
       });
 
@@ -59,9 +60,9 @@ export async function POST(
         data: {
           name: brandAnalysis.companyName || business.name,
           analysisStatus: "COMPLETED",
-          brandVoice: brandAnalysis.brandVoice as unknown as Record<string, unknown>,
+          brandVoice: brandAnalysis.brandVoice as unknown as Prisma.InputJsonValue,
           brandValues: brandAnalysis.brandValues,
-          products: brandAnalysis.products as unknown as Record<string, unknown>,
+          products: brandAnalysis.products as unknown as Prisma.InputJsonValue,
           targetAudience: brandAnalysis.targetAudience,
           analyzedAt: new Date(),
         },
