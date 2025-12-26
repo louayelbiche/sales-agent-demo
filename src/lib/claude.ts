@@ -1,12 +1,18 @@
 import Anthropic from "@anthropic-ai/sdk";
 
-if (!process.env.ANTHROPIC_API_KEY) {
-  throw new Error("Missing ANTHROPIC_API_KEY environment variable");
-}
+let anthropicClient: Anthropic | null = null;
 
-export const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+function getAnthropic(): Anthropic {
+  if (!anthropicClient) {
+    if (!process.env.ANTHROPIC_API_KEY) {
+      throw new Error("Missing ANTHROPIC_API_KEY environment variable");
+    }
+    anthropicClient = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    });
+  }
+  return anthropicClient;
+}
 
 export interface BrandAnalysisResult {
   brandVoice: {
@@ -49,7 +55,7 @@ export interface RecipientPersona {
 export async function analyzeBrand(scrapedContent: string): Promise<BrandAnalysisResult> {
   const { BRAND_ANALYSIS_SYSTEM, BRAND_ANALYSIS_USER } = await import("./prompts/brand-analysis");
 
-  const message = await anthropic.messages.create({
+  const message = await getAnthropic().messages.create({
     model: "claude-sonnet-4-20250514",
     max_tokens: 4096,
     messages: [
@@ -87,7 +93,7 @@ export async function generateRecipients(
 ): Promise<RecipientPersona[]> {
   const { RECIPIENT_GENERATION_SYSTEM, RECIPIENT_GENERATION_USER } = await import("./prompts/recipient-generation");
 
-  const message = await anthropic.messages.create({
+  const message = await getAnthropic().messages.create({
     model: "claude-sonnet-4-20250514",
     max_tokens: 4096,
     messages: [
@@ -124,7 +130,7 @@ export async function generateEmail(
 ): Promise<GeneratedEmailResult> {
   const { EMAIL_GENERATION_SYSTEM, EMAIL_GENERATION_USER } = await import("./prompts/email-generation");
 
-  const message = await anthropic.messages.create({
+  const message = await getAnthropic().messages.create({
     model: "claude-sonnet-4-20250514",
     max_tokens: 2048,
     messages: [
