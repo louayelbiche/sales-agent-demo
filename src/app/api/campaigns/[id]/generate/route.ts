@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
 import prisma from "@/lib/prisma";
 import { requireSession } from "@/lib/auth";
 import { generateRecipients, generateEmail, type BrandAnalysisResult } from "@/lib/claude";
@@ -84,7 +85,7 @@ export async function POST(
             recipientRole: recipient.role,
             recipientCompany: recipient.company,
             leadTemperature: recipient.leadTemperature,
-            personalizationHooks: recipient.personalizationHooks as Record<string, unknown>,
+            personalizationHooks: recipient.personalizationHooks as unknown as Prisma.InputJsonValue,
             subject: emailContent.subject,
             bodyHtml: emailContent.bodyHtml,
             bodyText: emailContent.bodyText,
