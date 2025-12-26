@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
@@ -40,6 +41,15 @@ export default function Home() {
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
         <header className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/runwell-icon.png"
+              alt="RunWell"
+              width={64}
+              height={64}
+              className="rounded-xl"
+            />
+          </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-4">
             Sales Agent Demo
           </h1>
