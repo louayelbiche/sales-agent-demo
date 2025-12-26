@@ -1,0 +1,169 @@
+// Sales Agent Demo - Database Schema
+// Spec: /claude-PM/projects/runwell-internal/specs/sales-agent-demo/sales-agent-demo-spec.v1.md
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== AUTH ====================
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  magicTokens MagicToken[]
+  sessions    Session[]
+  businesses  Business[]
+  campaigns   Campaign[]
+}
+
+model MagicToken {
+  id        String    @id @default(cuid())
+  token     String    @unique
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([token])
+  @@index([expiresAt])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionToken String   @unique
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+
+  @@index([sessionToken])
+}
+
+// ==================== BUSINESS PROFILE ====================
+
+model Business {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Basic info
+  name       String
+  websiteUrl String
+
+  // Scraped/analyzed data (stored as JSON for flexibility)
+  scrapedData Json? // Raw scraped content from website
+
+  // Brand identity extracted by Claude
+  brandVoice     Json?    // { tone, personality, dos, donts }
+  brandValues    String[] // Array of core values
+  products       Json?    // Array of { name, description, priceRange }
+  targetAudience String?
+
+  // Status
+  analysisStatus AnalysisStatus @default(PENDING)
+  analyzedAt     DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  campaigns Campaign[]
+
+  @@index([userId])
+}
+
+enum AnalysisStatus {
+  PENDING
+  SCRAPING
+  ANALYZING
+  COMPLETED
+  FAILED
+}
+
+// ==================== CAMPAIGNS ====================
+
+model Campaign {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  // Campaign definition
+  name       String
+  purpose    String @db.Text // User-provided campaign purpose
+  targetDesc String @db.Text // User-provided target description
+
+  // Status
+  status CampaignStatus @default(DRAFT)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  emails GeneratedEmail[]
+
+  @@index([userId])
+  @@index([businessId])
+}
+
+enum CampaignStatus {
+  DRAFT
+  GENERATING
+  READY
+  SENT
+}
+
+// ==================== EMAILS ====================
+
+model GeneratedEmail {
+  id         String   @id @default(cuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  // Simulated recipient (for demo)
+  recipientName    String
+  recipientEmail   String
+  recipientRole    String?
+  recipientCompany String?
+  leadTemperature  LeadTemperature @default(WARM)
+
+  // Personalization data
+  personalizationHooks Json? // { recentEvent, painPoint, etc. }
+
+  // Generated content
+  subject  String
+  bodyHtml String @db.Text
+  bodyText String @db.Text
+
+  // Send status
+  status   EmailStatus @default(PREVIEW)
+  sentAt   DateTime?
+  resendId String? // Resend API message ID
+
+  createdAt DateTime @default(now())
+
+  @@index([campaignId])
+}
+
+enum EmailStatus {
+  PREVIEW
+  SENDING
+  SENT
+  FAILED
+}
+
+enum LeadTemperature {
+  HOT
+  WARM
+  COOL
+  COLD
+}
