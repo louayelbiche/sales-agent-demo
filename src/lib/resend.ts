@@ -42,7 +42,7 @@ export async function sendEmail(params: SendEmailParams) {
 
 export async function sendMagicLink(email: string, token: string) {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3005";
-  const magicLink = `${appUrl}/auth/verify?token=${token}`;
+  const magicLink = `${appUrl}/api/auth/verify?token=${token}`;
 
   return sendEmail({
     to: email,

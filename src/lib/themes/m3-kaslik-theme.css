@@ -1,0 +1,290 @@
+/**
+ * Kaslik Workshop M3 Theme - CSS Variables
+ * Seed Color: #B8976E (Gold/Tan)
+ *
+ * Brand Palette:
+ * - Primary Gold/Tan: #B8976E
+ * - Dark Charcoal: #4A4A4A
+ * - Cream/Beige: #F5F0E8
+ * - Accent Gold (Light): #D4B896
+ */
+
+:root,
+[data-theme="kaslik"] {
+  /* =========================================================================
+     TONAL PALETTES
+     ========================================================================= */
+
+  /* Primary - Gold/Tan */
+  --palette-primary-0: #000000;
+  --palette-primary-5: #1A1308;
+  --palette-primary-10: #271E10;
+  --palette-primary-15: #352918;
+  --palette-primary-20: #433520;
+  --palette-primary-25: #514129;
+  --palette-primary-30: #604D32;
+  --palette-primary-35: #6F5A3C;
+  --palette-primary-40: #7E6746;
+  --palette-primary-50: #998058;
+  --palette-primary-60: #B4996B;
+  --palette-primary-70: #CFB384;
+  --palette-primary-80: #EBCE9E;
+  --palette-primary-90: #FFE8C0;
+  --palette-primary-95: #FFF3DC;
+  --palette-primary-98: #FFF9EF;
+  --palette-primary-99: #FFFCF7;
+  --palette-primary-100: #FFFFFF;
+
+  /* Secondary - Warm Neutral */
+  --palette-secondary-0: #000000;
+  --palette-secondary-5: #15120B;
+  --palette-secondary-10: #211D14;
+  --palette-secondary-15: #2C281E;
+  --palette-secondary-20: #373328;
+  --palette-secondary-25: #433E32;
+  --palette-secondary-30: #4F4A3D;
+  --palette-secondary-35: #5B5548;
+  --palette-secondary-40: #676154;
+  --palette-secondary-50: #817A6C;
+  --palette-secondary-60: #9B9485;
+  --palette-secondary-70: #B6AE9F;
+  --palette-secondary-80: #D2C9BA;
+  --palette-secondary-90: #EEE5D6;
+  --palette-secondary-95: #FDF3E4;
+  --palette-secondary-98: #FFF9EF;
+  --palette-secondary-99: #FFFCF7;
+  --palette-secondary-100: #FFFFFF;
+
+  /* Tertiary - Cool Neutral */
+  --palette-tertiary-0: #000000;
+  --palette-tertiary-5: #0D1415;
+  --palette-tertiary-10: #172022;
+  --palette-tertiary-15: #222B2D;
+  --palette-tertiary-20: #2D3638;
+  --palette-tertiary-25: #384143;
+  --palette-tertiary-30: #444D4F;
+  --palette-tertiary-35: #50595B;
+  --palette-tertiary-40: #5C6567;
+  --palette-tertiary-50: #757E80;
+  --palette-tertiary-60: #8F989A;
+  --palette-tertiary-70: #AAB2B5;
+  --palette-tertiary-80: #C5CED0;
+  --palette-tertiary-90: #E1EAEC;
+  --palette-tertiary-95: #EFF8FA;
+  --palette-tertiary-98: #F6FEFF;
+  --palette-tertiary-99: #FBFEFF;
+  --palette-tertiary-100: #FFFFFF;
+
+  /* Error */
+  --palette-error-0: #000000;
+  --palette-error-10: #410002;
+  --palette-error-20: #690005;
+  --palette-error-30: #93000A;
+  --palette-error-40: #BA1A1A;
+  --palette-error-50: #DD3730;
+  --palette-error-60: #FF5449;
+  --palette-error-70: #FF897D;
+  --palette-error-80: #FFB4AB;
+  --palette-error-90: #FFDAD6;
+  --palette-error-95: #FFEDEA;
+  --palette-error-99: #FFFBFF;
+  --palette-error-100: #FFFFFF;
+
+  /* Neutral */
+  --palette-neutral-0: #000000;
+  --palette-neutral-5: #121110;
+  --palette-neutral-10: #1D1C1A;
+  --palette-neutral-15: #282724;
+  --palette-neutral-20: #33312F;
+  --palette-neutral-25: #3E3C39;
+  --palette-neutral-30: #4A4744;
+  --palette-neutral-35: #565350;
+  --palette-neutral-40: #625F5C;
+  --palette-neutral-50: #7B7875;
+  --palette-neutral-60: #95928E;
+  --palette-neutral-70: #B0ACA9;
+  --palette-neutral-80: #CBC8C4;
+  --palette-neutral-90: #E8E4E0;
+  --palette-neutral-95: #F6F2EE;
+  --palette-neutral-98: #FFF9F5;
+  --palette-neutral-99: #FFFBFF;
+  --palette-neutral-100: #FFFFFF;
+
+  /* Neutral Variant */
+  --palette-neutral-variant-0: #000000;
+  --palette-neutral-variant-5: #14120D;
+  --palette-neutral-variant-10: #1F1D17;
+  --palette-neutral-variant-15: #2A2721;
+  --palette-neutral-variant-20: #35322B;
+  --palette-neutral-variant-25: #403D36;
+  --palette-neutral-variant-30: #4C4941;
+  --palette-neutral-variant-35: #58544C;
+  --palette-neutral-variant-40: #646058;
+  --palette-neutral-variant-50: #7D7970;
+  --palette-neutral-variant-60: #979289;
+  --palette-neutral-variant-70: #B2ADA3;
+  --palette-neutral-variant-80: #CEC8BE;
+  --palette-neutral-variant-90: #EAE4DA;
+  --palette-neutral-variant-95: #F9F2E8;
+  --palette-neutral-variant-98: #FFF9EF;
+  --palette-neutral-variant-99: #FFFCF7;
+  --palette-neutral-variant-100: #FFFFFF;
+
+  /* =========================================================================
+     LIGHT MODE COLOR SCHEME
+     ========================================================================= */
+
+  --md-sys-color-primary: #7E6746;
+  --md-sys-color-surface-tint: #7E6746;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #FFE8C0;
+  --md-sys-color-on-primary-container: #604D32;
+  --md-sys-color-secondary: #676154;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #EEE5D6;
+  --md-sys-color-on-secondary-container: #4F4A3D;
+  --md-sys-color-tertiary: #5C6567;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #E1EAEC;
+  --md-sys-color-on-tertiary-container: #444D4F;
+  --md-sys-color-error: #BA1A1A;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFDAD6;
+  --md-sys-color-on-error-container: #93000A;
+  --md-sys-color-background: #FFF9F5;
+  --md-sys-color-on-background: #1D1C1A;
+  --md-sys-color-surface: #FFF9F5;
+  --md-sys-color-on-surface: #1D1C1A;
+  --md-sys-color-surface-variant: #EAE4DA;
+  --md-sys-color-on-surface-variant: #4C4941;
+  --md-sys-color-outline: #7D7970;
+  --md-sys-color-outline-variant: #CEC8BE;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #33312F;
+  --md-sys-color-inverse-on-surface: #F6F2EE;
+  --md-sys-color-inverse-primary: #EBCE9E;
+  --md-sys-color-surface-dim: #DED9D4;
+  --md-sys-color-surface-bright: #FFF9F5;
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F8F3EE;
+  --md-sys-color-surface-container: #F2EDE8;
+  --md-sys-color-surface-container-high: #ECE7E2;
+  --md-sys-color-surface-container-highest: #E6E1DD;
+
+  /* =========================================================================
+     BRAND COLORS
+     ========================================================================= */
+
+  --kaslik-primary-gold: #B8976E;
+  --kaslik-accent-gold-light: #D4B896;
+  --kaslik-dark-charcoal: #4A4A4A;
+  --kaslik-cream-beige: #F5F0E8;
+  --kaslik-dark-gray: #666666;
+  --kaslik-white: #FFFFFF;
+}
+
+/* =============================================================================
+   DARK MODE
+   ============================================================================= */
+
+[data-theme="kaslik"].dark,
+.dark [data-theme="kaslik"],
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --md-sys-color-primary: #EBCE9E;
+    --md-sys-color-surface-tint: #EBCE9E;
+    --md-sys-color-on-primary: #433520;
+    --md-sys-color-primary-container: #604D32;
+    --md-sys-color-on-primary-container: #FFE8C0;
+    --md-sys-color-secondary: #D2C9BA;
+    --md-sys-color-on-secondary: #373328;
+    --md-sys-color-secondary-container: #4F4A3D;
+    --md-sys-color-on-secondary-container: #EEE5D6;
+    --md-sys-color-tertiary: #C5CED0;
+    --md-sys-color-on-tertiary: #2D3638;
+    --md-sys-color-tertiary-container: #444D4F;
+    --md-sys-color-on-tertiary-container: #E1EAEC;
+    --md-sys-color-error: #FFB4AB;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000A;
+    --md-sys-color-on-error-container: #FFDAD6;
+    --md-sys-color-background: #15130F;
+    --md-sys-color-on-background: #E6E1DD;
+    --md-sys-color-surface: #15130F;
+    --md-sys-color-on-surface: #E6E1DD;
+    --md-sys-color-surface-variant: #4C4941;
+    --md-sys-color-on-surface-variant: #CEC8BE;
+    --md-sys-color-outline: #979289;
+    --md-sys-color-outline-variant: #4C4941;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-inverse-surface: #E6E1DD;
+    --md-sys-color-inverse-on-surface: #33312F;
+    --md-sys-color-inverse-primary: #7E6746;
+    --md-sys-color-surface-dim: #15130F;
+    --md-sys-color-surface-bright: #3C3935;
+    --md-sys-color-surface-container-lowest: #0F0D0A;
+    --md-sys-color-surface-container-low: #1D1C1A;
+    --md-sys-color-surface-container: #22201D;
+    --md-sys-color-surface-container-high: #2C2A27;
+    --md-sys-color-surface-container-highest: #373532;
+  }
+}
+
+[data-theme="kaslik"].dark {
+  --md-sys-color-primary: #EBCE9E;
+  --md-sys-color-surface-tint: #EBCE9E;
+  --md-sys-color-on-primary: #433520;
+  --md-sys-color-primary-container: #604D32;
+  --md-sys-color-on-primary-container: #FFE8C0;
+  --md-sys-color-secondary: #D2C9BA;
+  --md-sys-color-on-secondary: #373328;
+  --md-sys-color-secondary-container: #4F4A3D;
+  --md-sys-color-on-secondary-container: #EEE5D6;
+  --md-sys-color-tertiary: #C5CED0;
+  --md-sys-color-on-tertiary: #2D3638;
+  --md-sys-color-tertiary-container: #444D4F;
+  --md-sys-color-on-tertiary-container: #E1EAEC;
+  --md-sys-color-error: #FFB4AB;
+  --md-sys-color-on-error: #690005;
+  --md-sys-color-error-container: #93000A;
+  --md-sys-color-on-error-container: #FFDAD6;
+  --md-sys-color-background: #15130F;
+  --md-sys-color-on-background: #E6E1DD;
+  --md-sys-color-surface: #15130F;
+  --md-sys-color-on-surface: #E6E1DD;
+  --md-sys-color-surface-variant: #4C4941;
+  --md-sys-color-on-surface-variant: #CEC8BE;
+  --md-sys-color-outline: #979289;
+  --md-sys-color-outline-variant: #4C4941;
+  --md-sys-color-shadow: #000000;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-inverse-surface: #E6E1DD;
+  --md-sys-color-inverse-on-surface: #33312F;
+  --md-sys-color-inverse-primary: #7E6746;
+  --md-sys-color-surface-dim: #15130F;
+  --md-sys-color-surface-bright: #3C3935;
+  --md-sys-color-surface-container-lowest: #0F0D0A;
+  --md-sys-color-surface-container-low: #1D1C1A;
+  --md-sys-color-surface-container: #22201D;
+  --md-sys-color-surface-container-high: #2C2A27;
+  --md-sys-color-surface-container-highest: #373532;
+}
+
+/* =============================================================================
+   UTILITY CLASSES
+   ============================================================================= */
+
+.bg-kaslik-gold { background-color: var(--kaslik-primary-gold); }
+.bg-kaslik-gold-light { background-color: var(--kaslik-accent-gold-light); }
+.bg-kaslik-charcoal { background-color: var(--kaslik-dark-charcoal); }
+.bg-kaslik-cream { background-color: var(--kaslik-cream-beige); }
+
+.text-kaslik-gold { color: var(--kaslik-primary-gold); }
+.text-kaslik-gold-light { color: var(--kaslik-accent-gold-light); }
+.text-kaslik-charcoal { color: var(--kaslik-dark-charcoal); }
+.text-kaslik-gray { color: var(--kaslik-dark-gray); }
+
+.border-kaslik-gold { border-color: var(--kaslik-primary-gold); }
+.border-kaslik-gold-light { border-color: var(--kaslik-accent-gold-light); }
