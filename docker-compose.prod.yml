@@ -17,7 +17,7 @@ services:
     networks:
       - sales-agent-network
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:3005/api/health"]
+      test: ["CMD-SHELL", "curl -sf http://localhost:3005/api/health || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
