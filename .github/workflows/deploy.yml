@@ -116,11 +116,11 @@ jobs:
 
             # Wait for DB to be ready
             echo "Waiting for database..."
-            sleep 10
+            sleep 5
 
-            # Run migrations
+            # Run migrations (timeout after 60s, don't fail deploy if slow)
             echo "Running database migrations..."
-            docker compose -f docker-compose.prod.yml exec -T app npx prisma migrate deploy || true
+            timeout 60 docker compose -f docker-compose.prod.yml exec -T app npx prisma migrate deploy 2>&1 || echo "Migration skipped or timed out - run manually if needed"
 
             # Health check
             echo "Waiting for app to become healthy..."
