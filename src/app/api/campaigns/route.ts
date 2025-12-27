@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
     const session = await requireSession();
     const { searchParams } = new URL(request.url);
     const businessId = searchParams.get("businessId");
+    const includeEmails = searchParams.get("includeEmails") === "true";
 
     const where: { userId: string; businessId?: string } = { userId: session.id };
     if (businessId) {
@@ -28,6 +29,19 @@ export async function GET(request: NextRequest) {
         business: {
           select: { name: true, websiteUrl: true },
         },
+        emails: includeEmails
+          ? {
+              orderBy: { createdAt: "asc" },
+              select: {
+                id: true,
+                recipientName: true,
+                recipientEmail: true,
+                subject: true,
+                status: true,
+                sentAt: true,
+              },
+            }
+          : false,
         _count: {
           select: { emails: true },
         },

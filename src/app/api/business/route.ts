@@ -5,7 +5,14 @@ import { requireSession } from "@/lib/auth";
 import { getWebsitePreview } from "@/lib/scraper";
 
 const createBusinessSchema = z.object({
-  websiteUrl: z.string().url("Invalid URL"),
+  websiteUrl: z.string().min(1, "URL is required").transform((url) => {
+    // Auto-prepend https:// if no protocol is provided
+    const trimmed = url.trim();
+    if (!trimmed.match(/^https?:\/\//i)) {
+      return `https://${trimmed}`;
+    }
+    return trimmed;
+  }),
   name: z.string().min(1, "Name is required").optional(),
 });
 
