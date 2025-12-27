@@ -114,13 +114,20 @@ jobs:
             cd /opt/sales-agent-demo
 
             # Write secrets to .env file
-            cat > .env << EOF
-            ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY
-            RESEND_API_KEY=$RESEND_API_KEY
-            RESEND_FROM_EMAIL=$RESEND_FROM_EMAIL
-            POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            cat > .env << 'ENVEOF'
+            ANTHROPIC_API_KEY=PLACEHOLDER_ANTHROPIC
+            RESEND_API_KEY=PLACEHOLDER_RESEND
+            RESEND_FROM_EMAIL=PLACEHOLDER_FROM
+            POSTGRES_PASSWORD=PLACEHOLDER_PASS
             NEXT_PUBLIC_APP_URL=https://sales.runwellsystems.com
-            EOF
+            ENVEOF
+            # Replace placeholders with actual values (avoids heredoc indentation issues)
+            sed -i "s|PLACEHOLDER_ANTHROPIC|$ANTHROPIC_API_KEY|g" .env
+            sed -i "s|PLACEHOLDER_RESEND|$RESEND_API_KEY|g" .env
+            sed -i "s|PLACEHOLDER_FROM|$RESEND_FROM_EMAIL|g" .env
+            sed -i "s|PLACEHOLDER_PASS|$POSTGRES_PASSWORD|g" .env
+            # Remove leading whitespace from all lines
+            sed -i 's/^[[:space:]]*//' .env
             chmod 600 .env
 
             # Login to GHCR
