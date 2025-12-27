@@ -1,8 +1,6 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/louayelbiche/sales-agent-demo:latest
     container_name: sales-agent-app
     restart: unless-stopped
     ports:
