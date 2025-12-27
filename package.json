@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
-    "@prisma/client": "^6.0.0",
+    "@prisma/client": "6.8.2",
     "@runwell/brand-kit": "^1.2.0",
     "cheerio": "^1.1.2",
     "next": "16.1.1",
@@ -38,7 +38,7 @@
     "@vitest/ui": "^4.0.16",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
-    "prisma": "^6.0.0",
+    "prisma": "6.8.2",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.0.16"
