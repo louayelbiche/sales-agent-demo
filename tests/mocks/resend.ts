@@ -11,29 +11,39 @@ export const mockResendError = {
   error: { message: "Failed to send email", statusCode: 500, name: "api_error" },
 };
 
+// Mock send function
+export const mockSend = vi.fn().mockResolvedValue(mockResendResponse);
+
 // Mock Resend client
 export const mockResendClient = {
   emails: {
-    send: vi.fn().mockResolvedValue(mockResendResponse),
+    send: mockSend,
   },
 };
 
-// Mock the Resend constructor
-vi.mock("resend", () => ({
-  Resend: vi.fn(() => mockResendClient),
-}));
+// Mock the Resend constructor using a class
+vi.mock("resend", () => {
+  class MockResend {
+    emails = {
+      send: mockSend,
+    };
+  }
+  return {
+    Resend: MockResend,
+  };
+});
 
 export function resetResendMocks() {
-  mockResendClient.emails.send.mockReset();
-  mockResendClient.emails.send.mockResolvedValue(mockResendResponse);
+  mockSend.mockReset();
+  mockSend.mockResolvedValue(mockResendResponse);
 }
 
 export function mockResendFailure() {
-  mockResendClient.emails.send.mockResolvedValue(mockResendError);
+  mockSend.mockResolvedValue(mockResendError);
 }
 
 export function mockResendSuccess(emailId = "email-123") {
-  mockResendClient.emails.send.mockResolvedValue({
+  mockSend.mockResolvedValue({
     data: { id: emailId },
     error: null,
   });
