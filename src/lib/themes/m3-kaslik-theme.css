@@ -1,0 +1,90 @@
+/**
+ * Kaslik Workshop M3 Theme - CSS Variables
+ * Seed Color: #B8976E (Gold/Tan)
+ */
+
+:root,
+[data-theme="kaslik"] {
+  /* Primary - Gold/Tan */
+  --palette-primary-0: #000000;
+  --palette-primary-10: #271E10;
+  --palette-primary-20: #433520;
+  --palette-primary-30: #604D32;
+  --palette-primary-40: #7E6746;
+  --palette-primary-50: #998058;
+  --palette-primary-60: #B4996B;
+  --palette-primary-70: #CFB384;
+  --palette-primary-80: #EBCE9E;
+  --palette-primary-90: #FFE8C0;
+  --palette-primary-95: #FFF3DC;
+  --palette-primary-100: #FFFFFF;
+
+  /* Secondary - Warm Neutral */
+  --palette-secondary-0: #000000;
+  --palette-secondary-10: #211D14;
+  --palette-secondary-20: #373328;
+  --palette-secondary-30: #4F4A3D;
+  --palette-secondary-40: #676154;
+  --palette-secondary-50: #817A6C;
+  --palette-secondary-60: #9B9485;
+  --palette-secondary-70: #B6AE9F;
+  --palette-secondary-80: #D2C9BA;
+  --palette-secondary-90: #EEE5D6;
+  --palette-secondary-95: #FDF3E4;
+  --palette-secondary-100: #FFFFFF;
+
+  /* Light Mode Color Scheme */
+  --md-sys-color-primary: #7E6746;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #FFE8C0;
+  --md-sys-color-on-primary-container: #604D32;
+  --md-sys-color-secondary: #676154;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #EEE5D6;
+  --md-sys-color-on-secondary-container: #4F4A3D;
+  --md-sys-color-background: #FFF9F5;
+  --md-sys-color-on-background: #1D1C1A;
+  --md-sys-color-surface: #FFF9F5;
+  --md-sys-color-on-surface: #1D1C1A;
+  --md-sys-color-surface-variant: #EAE4DA;
+  --md-sys-color-on-surface-variant: #4C4941;
+  --md-sys-color-outline: #7D7970;
+  --md-sys-color-outline-variant: #CEC8BE;
+  --md-sys-color-surface-container: #F2EDE8;
+  --md-sys-color-surface-container-low: #F8F3EE;
+  --md-sys-color-surface-container-high: #ECE7E2;
+
+  /* Brand Colors */
+  --kaslik-primary-gold: #B8976E;
+  --kaslik-accent-gold-light: #D4B896;
+  --kaslik-dark-charcoal: #4A4A4A;
+  --kaslik-cream-beige: #F5F0E8;
+  --kaslik-dark-gray: #666666;
+}
+
+[data-theme="kaslik"].dark {
+  --md-sys-color-primary: #EBCE9E;
+  --md-sys-color-on-primary: #433520;
+  --md-sys-color-primary-container: #604D32;
+  --md-sys-color-on-primary-container: #FFE8C0;
+  --md-sys-color-secondary: #D2C9BA;
+  --md-sys-color-on-secondary: #373328;
+  --md-sys-color-background: #15130F;
+  --md-sys-color-on-background: #E6E1DD;
+  --md-sys-color-surface: #15130F;
+  --md-sys-color-on-surface: #E6E1DD;
+  --md-sys-color-surface-variant: #4C4941;
+  --md-sys-color-on-surface-variant: #CEC8BE;
+  --md-sys-color-outline: #979289;
+  --md-sys-color-outline-variant: #4C4941;
+  --md-sys-color-surface-container: #22201D;
+  --md-sys-color-surface-container-low: #1D1C1A;
+  --md-sys-color-surface-container-high: #2C2A27;
+}
+
+/* Utility Classes */
+.bg-kaslik-gold { background-color: var(--kaslik-primary-gold); }
+.bg-kaslik-cream { background-color: var(--kaslik-cream-beige); }
+.text-kaslik-gold { color: var(--kaslik-primary-gold); }
+.text-kaslik-charcoal { color: var(--kaslik-dark-charcoal); }
+.border-kaslik-gold { border-color: var(--kaslik-primary-gold); }
