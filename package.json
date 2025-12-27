@@ -21,7 +21,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@prisma/client": "^6.0.0",
-    "@runwell/brand-tokens": "github:louayelbiche/runwell-brand-kit",
+    "@runwell/brand-kit": "^1.2.0",
     "cheerio": "^1.1.2",
     "next": "16.1.1",
     "react": "19.2.3",
