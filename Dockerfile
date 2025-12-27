@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 # Stage 1: Dependencies
 # Pinned with SHA256 digest for supply chain security - update monthly
 # To update: docker pull node:20-alpine && docker inspect --format='{{index .RepoDigests 0}}' node:20-alpine
@@ -7,7 +9,10 @@ WORKDIR /app
 
 COPY package.json package-lock.json* ./
 COPY prisma ./prisma/
-RUN npm ci
+
+# Use cache mount for faster builds
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci --prefer-offline
 
 # Stage 2: Builder
 FROM node:20-alpine@sha256:658d0f63e501824d6c23e06d4bb95c71e7d704537c9d9272f488ac03a370d448 AS builder
