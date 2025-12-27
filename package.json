@@ -6,6 +6,7 @@
     "dev": "next dev -p 3005",
     "build": "next build",
     "start": "next start -p 3005",
+    "analyze": "ANALYZE=true next build",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -29,6 +30,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
