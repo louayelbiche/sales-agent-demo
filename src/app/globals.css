@@ -1,21 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Kaslik Brand Colors */
+  --color-primary: #B8976E;
+  --color-primary-light: #D4B896;
+  --color-primary-dark: #9A7D5A;
+
+  --color-charcoal: #4A4A4A;
+  --color-gray: #666666;
+  --color-cream: #F5F0E8;
+
+  --background: #FFFFFF;
+  --foreground: #4A4A4A;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: #B8976E;
+  --color-primary-light: #D4B896;
+  --color-primary-dark: #9A7D5A;
+  --color-charcoal: #4A4A4A;
+  --color-gray: #666666;
+  --color-cream: #F5F0E8;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2A2A2A;
+    --foreground: #F5F0E8;
   }
 }
 
