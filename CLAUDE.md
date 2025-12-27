@@ -1,6 +1,6 @@
 # Sales Agent Demo
 
-AI-powered sales email demo hosted at salesagent.runwellsystems.com
+AI-powered sales email demo hosted at sales.runwellsystems.com
 
 ## Quick Reference
 
@@ -68,5 +68,5 @@ See `.env.example` for required variables.
 ## Deployment
 
 - **Target:** Hostinger VPS (72.62.121.234)
-- **Domain:** salesagent.runwellsystems.com
+- **Domain:** sales.runwellsystems.com
 - **CI/CD:** GitHub Actions

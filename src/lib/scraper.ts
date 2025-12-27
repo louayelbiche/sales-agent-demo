@@ -16,7 +16,7 @@ export interface ScrapedWebsite {
 }
 
 const USER_AGENT =
-  "Mozilla/5.0 (compatible; SalesAgentDemo/1.0; +https://salesagent.runwellsystems.com)";
+  "Mozilla/5.0 (compatible; SalesAgentDemo/1.0; +https://sales.runwellsystems.com)";
 
 const PAGE_PATTERNS = [
   { name: "about", patterns: ["/about", "/about-us", "/company", "/who-we-are"] },

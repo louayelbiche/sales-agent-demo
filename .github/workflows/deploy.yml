@@ -119,7 +119,7 @@ jobs:
             RESEND_API_KEY=$RESEND_API_KEY
             RESEND_FROM_EMAIL=$RESEND_FROM_EMAIL
             POSTGRES_PASSWORD=$POSTGRES_PASSWORD
-            NEXT_PUBLIC_APP_URL=https://salesagent.runwellsystems.com
+            NEXT_PUBLIC_APP_URL=https://sales.runwellsystems.com
             EOF
             chmod 600 .env
 

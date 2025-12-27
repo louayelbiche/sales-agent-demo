@@ -37,18 +37,18 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 # Resend
 RESEND_API_KEY=re_your-key-here
-RESEND_FROM_EMAIL=demo@salesagent.runwellsystems.com
+RESEND_FROM_EMAIL=demo@sales.runwellsystems.com
 
 # App URL
-NEXT_PUBLIC_APP_URL=https://salesagent.runwellsystems.com
+NEXT_PUBLIC_APP_URL=https://sales.runwellsystems.com
 EOF
     echo "IMPORTANT: Edit /opt/sales-agent-demo/.env with your actual credentials!"
 fi
 
 # 5. Set up nginx
 echo "Setting up nginx..."
-cp deploy/nginx.conf /etc/nginx/sites-available/salesagent.runwellsystems.com
-ln -sf /etc/nginx/sites-available/salesagent.runwellsystems.com /etc/nginx/sites-enabled/
+cp deploy/nginx.conf /etc/nginx/sites-available/sales.runwellsystems.com
+ln -sf /etc/nginx/sites-available/sales.runwellsystems.com /etc/nginx/sites-enabled/
 
 # 6. Get SSL certificate (run after DNS is configured)
 echo ""
@@ -56,9 +56,9 @@ echo "=== Setup Complete ==="
 echo ""
 echo "Next steps:"
 echo "1. Edit /opt/sales-agent-demo/.env with your credentials"
-echo "2. Configure DNS: A record for salesagent.runwellsystems.com -> $(curl -s ifconfig.me)"
+echo "2. Configure DNS: A record for sales.runwellsystems.com -> $(curl -s ifconfig.me)"
 echo "3. Get SSL certificate:"
-echo "   certbot certonly --webroot -w /var/www/certbot -d salesagent.runwellsystems.com"
+echo "   certbot certonly --webroot -w /var/www/certbot -d sales.runwellsystems.com"
 echo "4. Start the application:"
 echo "   cd /opt/sales-agent-demo && docker compose -f docker-compose.prod.yml up -d"
 echo "5. Run database migrations:"

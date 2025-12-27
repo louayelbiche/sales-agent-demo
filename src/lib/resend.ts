@@ -21,7 +21,7 @@ export interface SendEmailParams {
 }
 
 export async function sendEmail(params: SendEmailParams) {
-  const fromEmail = process.env.RESEND_FROM_EMAIL || "demo@salesagent.runwellsystems.com";
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "demo@sales.runwellsystems.com";
 
   const { data, error } = await getResend().emails.send({
     from: `Sales Agent Demo <${fromEmail}>`,

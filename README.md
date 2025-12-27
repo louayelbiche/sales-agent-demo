@@ -2,7 +2,7 @@
 
 AI-powered sales email demo that analyzes your brand and generates personalized outreach.
 
-**Live Demo:** https://salesagent.runwellsystems.com
+**Live Demo:** https://sales.runwellsystems.com
 
 ## Features
 
