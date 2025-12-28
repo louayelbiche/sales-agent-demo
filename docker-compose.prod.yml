@@ -1,3 +1,5 @@
+name: sales-agent-demo
+
 services:
   app:
     image: ghcr.io/louayelbiche/sales-agent-demo:latest

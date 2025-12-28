@@ -10,10 +10,10 @@ services:
     ports:
       - "3005:3005"
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/sales_agent
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/sales_agent
       - NODE_ENV=development
     depends_on:
-      postgres:
+      db:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:3005"]
@@ -22,7 +22,7 @@ services:
       retries: 3
       start_period: 30s
 
-  postgres:
+  db:
     image: postgres:16-alpine
     container_name: sales-agent-db
     environment:
