@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Business {
   id: string;
@@ -12,6 +13,7 @@ interface Business {
 }
 
 export default function BusinessesTab() {
+  const router = useRouter();
   const [businesses, setBusinesses] = useState<Business[]>([]);
   const [loading, setLoading] = useState(true);
   const [url, setUrl] = useState("");
@@ -60,8 +62,8 @@ export default function BusinessesTab() {
         throw new Error(data.error || "Failed to create business");
       }
 
-      setUrl("");
-      setBusinesses([data.data, ...businesses]);
+      // Redirect to the business page
+      router.push(`/dashboard/business/${data.data.id}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
@@ -91,7 +93,7 @@ export default function BusinessesTab() {
       {/* Add Business Form */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-8">
         <h2 className="text-lg font-semibold text-slate-900 mb-4">
-          Analyze a New Website
+          Enter Your Business Website
         </h2>
         <form onSubmit={handleCreateBusiness} className="flex gap-4">
           <input
