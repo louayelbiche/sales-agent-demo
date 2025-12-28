@@ -109,23 +109,14 @@ function CampaignForm() {
       </h1>
 
       <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 space-y-6">
-        {/* Business Selection */}
+        {/* Business Display */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">
             Business
           </label>
-          <select
-            value={selectedBusinessId}
-            onChange={(e) => setSelectedBusinessId(e.target.value)}
-            required
-            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
-          >
-            {businesses.map((business) => (
-              <option key={business.id} value={business.id}>
-                {business.name}
-              </option>
-            ))}
-          </select>
+          <div className="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+            {businesses.find(b => b.id === selectedBusinessId)?.name || "Loading..."}
+          </div>
         </div>
 
         {/* Campaign Name */}
